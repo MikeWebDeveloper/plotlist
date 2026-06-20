@@ -1,15 +1,20 @@
 import Link from "next/link";
-import { type Council } from "@/data/councils";
+import { type Council, isVerified, waitSummary } from "@/data/councils";
 
 export function CouncilCard({ council }: { council: Council }) {
-  const verified = Boolean(council.waitlist && !council.seed);
+  const verified = isVerified(council);
+  const wait = verified ? waitSummary(council) : null;
+
   return (
     <Link href={`/${council.slug}`} className="card">
-      <div className="name">{council.shortName}</div>
+      <div className="card-top">
+        <span className="name">{council.shortName}</span>
+        <span aria-hidden className="card-arrow">→</span>
+      </div>
       <div className="meta">{council.region}</div>
-      <div style={{ marginTop: 8 }}>
-        {verified ? (
-          <span className="badge verified">Wait time on record</span>
+      <div className="card-foot">
+        {verified && wait ? (
+          <span className="badge verified">Wait: {wait}</span>
         ) : (
           <span className="badge unverified">How to apply</span>
         )}

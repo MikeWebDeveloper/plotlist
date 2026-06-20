@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import { site, absoluteUrl } from "@/lib/site";
 import { JsonLd, websiteJsonLd } from "@/lib/jsonld";
+import { regions, councilsByRegion, slugifyRegion } from "@/data/councils";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -50,6 +51,17 @@ export default function RootLayout({
               never invent waiting times — figures are shown only where we have
               checked a real published source, with the date we checked it.
             </p>
+            <nav aria-label="Browse regions">
+              <ul className="foot-regions">
+                {regions
+                  .filter((r) => councilsByRegion(r).length > 0)
+                  .map((r) => (
+                    <li key={r}>
+                      <Link href={`/region/${slugifyRegion(r)}`}>{r}</Link>
+                    </li>
+                  ))}
+              </ul>
+            </nav>
             <p className="note">
               A project of The Company. Not affiliated with any council.
             </p>
