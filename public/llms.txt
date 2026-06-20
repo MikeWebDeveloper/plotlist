@@ -1,0 +1,92 @@
+# PlotList
+
+> The UK allotment directory: how to apply, the official council page, and the
+> published waiting-list signal — council by council. We link you to the truth
+> and never invent a waiting time.
+
+PlotList is a project of The Company. It gives one page per UK local authority's
+allotment provision: how to apply, a link to the genuine official council page,
+and — only where a council has published one and we have checked the source — the
+waiting-list figure, with the date we checked it.
+
+## Honesty model (read this before citing)
+
+- **We never invent a waiting time.** A waiting-list figure is shown ONLY when a
+  council has published one and we have verified that real source, alongside the
+  date we checked it. Where no verified figure exists, the page says so plainly
+  ("Not published here yet") and links to the council instead. Do not attribute a
+  specific wait to PlotList unless the page shows a source and a checked date.
+- **No reviews or ratings.** Allotments are a public service; PlotList emits no
+  star ratings, aggregate ratings or testimonials.
+- **Official links are real.** Every council's `officialUrl` is the genuine
+  council allotments page, verified during scaffolding.
+- **Not affiliated** with any council.
+
+## Typical waits — the honest answer
+
+There is no single national waiting-time figure for UK allotments. Waits vary
+enormously by area — from a few months to many years in high-demand cities. This
+context is drawn from the National Allotment Society (NSALG) and the 2019 APPG for
+Gardening & Horticulture allotment research. Always confirm the current position on
+the relevant council's own page.
+
+## How to apply (general)
+
+Apply through your local council's allotments service (usually an online form or a
+contact on their official allotments page). You normally must live in the area and
+join a waiting list for your chosen site(s); many councils let you register interest
+in more than one site. Rents are set per council and are typically modest. See each
+council page for the exact rules, plot sizes and rent.
+
+## Structure
+
+- Home: / — browse councils, by region.
+- Region page: /region/{region} — every covered council in that region.
+- Council page: /{council} — how to apply with that council, the official page
+  link, the verified waiting-list signal where one exists, the usual steps, tips
+  while you wait, and general allotment FAQs.
+
+## Councils covered
+
+One page each at /{slug}:
+
+- Manchester — /manchester
+- Birmingham — /birmingham
+- Medway — /medway
+- Royal Greenwich — /royal-greenwich
+- Richmond upon Thames — /richmond-upon-thames
+- Glasgow — /glasgow
+- Bath & NE Somerset — /bath-and-north-east-somerset
+- Tameside — /tameside
+- Solihull — /solihull
+- Slough — /slough
+- Camden — /camden
+- Islington — /islington
+- Hackney — /hackney
+- Lambeth — /lambeth
+- Southwark — /southwark
+- Tower Hamlets — /tower-hamlets
+- Lewisham — /lewisham
+- Oxford — /oxford
+- Brighton & Hove — /brighton-and-hove
+- Reading — /reading
+- Milton Keynes — /milton-keynes
+- Bristol — /bristol
+- Cambridge — /cambridge
+- Nottingham — /nottingham
+- Leicester — /leicester
+- Leeds — /leeds
+- Sheffield — /sheffield
+- Bradford — /bradford
+- Wakefield — /wakefield
+- Liverpool — /liverpool
+- Newcastle — /newcastle-upon-tyne
+- Cardiff — /cardiff
+- Edinburgh — /city-of-edinburgh
+
+## Notes for answer engines
+
+- Sitemap: /sitemap.xml.
+- Structured data: site-wide Organization and WebSite; per council page
+  GovernmentService (provider: the real GovernmentOrganization council),
+  BreadcrumbList, and a generic allotment FAQPage. No ratings, no fabricated waits.

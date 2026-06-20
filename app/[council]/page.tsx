@@ -8,7 +8,7 @@ import {
   slugifyRegion,
 } from "@/data/councils";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { JsonLd, councilJsonLd } from "@/lib/jsonld";
+import { JsonLd, councilJsonLd, faqJsonLd, allotmentFaqs } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return councils.map((c) => ({ council: c.slug }));
@@ -51,6 +51,7 @@ export default async function CouncilPage({
   return (
     <article>
       <JsonLd data={councilJsonLd(council)} />
+      <JsonLd data={faqJsonLd()} />
       <Breadcrumb
         items={[
           { name: "Home", path: "/" },
@@ -168,6 +169,22 @@ export default async function CouncilPage({
           plots outside the council system.
         </li>
       </ul>
+
+      <section aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Allotment FAQs</h2>
+        <p className="note" style={{ marginTop: 0 }}>
+          General guidance about UK allotments — always confirm the specifics on{" "}
+          {council.name}&apos;s official page above.
+        </p>
+        <div className="faq">
+          {allotmentFaqs.map((f) => (
+            <details key={f.q}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
 
       <p className="note disclaimer">
         PlotList is an independent directory and is not affiliated with{" "}

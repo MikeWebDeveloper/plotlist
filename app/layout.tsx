@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { site, absoluteUrl } from "@/lib/site";
-import { JsonLd, websiteJsonLd } from "@/lib/jsonld";
+import { JsonLd, websiteJsonLd, organizationJsonLd } from "@/lib/jsonld";
 import { regions, councilsByRegion, slugifyRegion } from "@/data/councils";
 
 export const metadata: Metadata = {
@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <body>
+        <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
         <header className="site">
           <div className="container">
